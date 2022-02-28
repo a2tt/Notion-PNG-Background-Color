@@ -4,7 +4,7 @@
  */
 export function storageGetPromise(key) {
     return new Promise((resolve, reject) => {
-        chrome.storage.local.get(key, (res) => {
+        chrome.storage.sync.get(key, (res) => {
             resolve(res);
         });
     });
@@ -16,7 +16,7 @@ export function storageGetPromise(key) {
  */
 export function storageSetPromise(obj) {
     return new Promise((resolve, reject) => {
-        chrome.storage.local.set(obj, () => {
+        chrome.storage.sync.set(obj, () => {
             resolve();
         })
     })
