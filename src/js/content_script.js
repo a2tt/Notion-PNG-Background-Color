@@ -6,7 +6,7 @@ function createCss() {
     storageGetPromise([constants.KEY_COLOR]).then(items => {
         let color = items[constants.KEY_COLOR];
 
-        if (color === undefined) return;
+        if (color === undefined || color === null) return;
 
         let style = document.createElement('style');
 
