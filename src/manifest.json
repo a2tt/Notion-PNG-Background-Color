@@ -2,7 +2,7 @@
   "description": "Version and Description should be specified in package.json",
   "version": "0.0.0",
   "manifest_version": 3,
-  "name": "Notion PNG Background Color",
+  "name": "Notion Dark Mode - PNG background color",
   "action": {
     "default_icon": "/img/icon_16.png",
     "default_popup": "/html/popup.html"

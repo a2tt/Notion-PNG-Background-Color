@@ -1,7 +1,7 @@
 {
-  "name": "notion-png-background-color",
+  "name": "notion-dark-mode-png-background-color",
   "version": "1.0.0",
-  "description": "Background Color under transparent PNG",
+  "description": "Add Background Color to enhance the visibility of the letters in the PNG image",
   "scripts": {
     "build-production": "NODE_ENV=production yarn run build",
     "build": "node utils/build.js",
