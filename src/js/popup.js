@@ -10,6 +10,10 @@ let colorPicker = document.getElementById('bg-color');
 let sample = document.getElementsByClassName('sample')[0];
 let resetBtn = document.getElementsByClassName('reset-btn')[0];
 
+// Directly save the selected color when it is false and popup is going to be closed.
+let saved = true;
+
+// Timeout for saving interval
 let debounceSave = null;
 
 /**
@@ -18,15 +22,16 @@ let debounceSave = null;
  * @param save: save if true, otherwise nothing
  */
 function applySampleColor(color, save) {
-    if (hexPattern.test(color)) {
-        sample.style.backgroundColor = color;
+    if (!hexPattern.test(color)) return;
 
-        if (save) {
-            clearTimeout(debounceSave);
-            debounceSave = setTimeout(() => {
-                saveColor(color);
-            }, constants.SAVE_DEBOUNCE)
-        }
+    saved = false;
+    sample.style.backgroundColor = color;
+
+    if (save) {
+        clearTimeout(debounceSave);
+        debounceSave = setTimeout(() => {
+            saveColor(color);
+        }, constants.SAVE_DEBOUNCE)
     }
 }
 
@@ -47,8 +52,21 @@ function loadColor() {
  */
 function saveColor(color) {
     storageSetPromise({[constants.KEY_COLOR]: color});
+    saved = true;
 }
 
+/**
+ * Save selected color when popup is about to close
+ */
+function saveIfNot() {
+    if (!saved) {
+        saveColor(colorPicker.value);
+    }
+}
+
+/**
+ * Reset to transparent
+ */
 function resetColor() {
     saveColor(null);
     loadColor();
@@ -63,4 +81,6 @@ function colorPickerOnChange(e) {
     loadColor();
     colorPicker.addEventListener("input", colorPickerOnChange);
     resetBtn.addEventListener('click', resetColor);
+
+    window.onblur = saveIfNot;
 })()
