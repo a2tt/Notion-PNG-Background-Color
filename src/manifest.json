@@ -1,0 +1,32 @@
+{
+  "description": "Version and Description should be specified in package.json",
+  "version": "0.0.0",
+  "manifest_version": 3,
+  "name": "Notion PNG Background Color",
+  "action": {
+    "default_icon": "/img/icon_16.png",
+    "default_popup": "/html/popup.html"
+  },
+  "icons": {
+    "16": "/img/icon_16.png",
+    "48": "/img/icon_48.png",
+    "128": "/img/icon_128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.notion.so/*"
+      ],
+      "css": ["inserted.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src http://localhost:* ws://localhost:*;"
+  }
+}

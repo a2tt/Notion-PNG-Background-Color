@@ -1,0 +1,35 @@
+{
+  "name": "notion-png-background-color",
+  "version": "1.0.0",
+  "description": "Background Color under transparent PNG",
+  "scripts": {
+    "build-production": "NODE_ENV=production yarn run build",
+    "build": "node utils/build.js",
+    "start": "NODE_ENV=development node utils/webserver.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usera2tt/Notion-PNG-Background-Color.git"
+  },
+  "author": "usera2tt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/usera2tt/Notion-PNG-Background-Color/issues"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "3.0.0",
+    "copy-webpack-plugin": "5.0.5",
+    "css-loader": "3.2.0",
+    "file-loader": "4.3.0",
+    "fs-extra": "8.1.0",
+    "html-loader": "0.5.5",
+    "html-replace-webpack-plugin": "^2.6.0",
+    "html-webpack-plugin": "3.2.0",
+    "style-loader": "1.0.0",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.9.0",
+    "write-file-webpack-plugin": "4.5.1",
+    "mini-css-extract-plugin": "1.6.2"
+  }
+}
