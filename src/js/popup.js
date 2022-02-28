@@ -24,10 +24,10 @@ let debounceSave = null;
 function applySampleColor(color, save) {
     if (!hexPattern.test(color)) return;
 
-    saved = false;
     sample.style.backgroundColor = color;
 
     if (save) {
+        saved = false;
         clearTimeout(debounceSave);
         debounceSave = setTimeout(() => {
             saveColor(color);
@@ -40,8 +40,14 @@ function applySampleColor(color, save) {
  */
 function loadColor() {
     storageGetPromise([constants.KEY_COLOR]).then(items => {
-        let color = items[constants.KEY_COLOR] || "#ffffff"; // white if transparent
-        colorPicker.value = color;
+        let color;
+        if (items[constants.KEY_COLOR]) {
+            color = colorPicker.value = items[constants.KEY_COLOR];
+        } else {
+            colorPicker.value = null;
+            color = "#ffffff";  // white if undefined or transparent
+        }
+
         applySampleColor(color, false);
     })
 }
