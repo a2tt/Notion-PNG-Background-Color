@@ -7,7 +7,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin')
 
 // load the secrets
 var alias = {};
