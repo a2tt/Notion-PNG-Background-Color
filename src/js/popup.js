@@ -18,7 +18,6 @@ let debounceSave = null;
  * @param save: save if true, otherwise nothing
  */
 function applySampleColor(color, save) {
-    console.log(color)
     if (hexPattern.test(color)) {
         sample.style.backgroundColor = color;
 
@@ -47,9 +46,7 @@ function loadColor() {
  * @param color
  */
 function saveColor(color) {
-    storageSetPromise({[constants.KEY_COLOR]: color}).then(() => {
-        console.log('saved')
-    })
+    storageSetPromise({[constants.KEY_COLOR]: color});
 }
 
 function resetColor() {
