@@ -17,8 +17,8 @@
       "matches": [
         "https://www.notion.so/*"
       ],
-      "css": ["inserted.css"],
-      "run_at": "document_start",
+      "js": ["content_script.bundle.js"],
+      "run_at": "document_end",
       "all_frames": true
     }
   ],
